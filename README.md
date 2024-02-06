@@ -236,34 +236,88 @@ async function fetchSomething(){
 
 The `url` is the URL of the resource you want to fetch. `options` is an optional object that contains settings for the request, such as headers, method and body etc.
 
-The `fetch` returns a Promise that resolves to the `Response` to taht request, whether it is successful or not.
+The `fetch` returns a Promise that resolves to the `Response` to that request, whether it is successful or not.
 
 [Back to top](#asynchronous-javascript)
 
 #### Common options
 
+- **method**: the HTTP method for the request _( "GET", "POST", "PUT", "DELETE" )_. `GET` is the default value on this property.
+
+  - `GET` is used for fetching resources
+  - `POST` is used for creating new resources
+  - `PUT` is used for updating existing resources
+  - `DELETE` is used to remove resources
+
+```js
+fetch("https://api.example.com/data", {
+  method: "POST",
+});
+```
+
+- **headers**: an object containing any headers you want to include in your request. The most common header is the `Content/Type` which specifies the media type of the resource. For example, when sending JSON data in a `POST` request, you would set this property to `application/json`.
+
+```js
+fetch("https://api.example.com/data", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+```
+
+- **body**: data to be sent in a request, usually a `POST` or `PUT` request. It is most of the times a JSON string but can have other forms as well.
+
 [Back to top](#asynchronous-javascript)
 
 #### Response Object
+
+The `Response` object represents the response to a request. It has various properties and methods, here is a few of them.
+
+- **ok**: a boolean indicating whether the request was successful _( status code in the range 200-299 )_ or not.
+
+- **status**: the HTTP status code of the response.
+
+- **statusText**: the HTTP status text of the response.
+
+- **headers**: an object representing the headers of the response.
+
+- **json()**: a method that returns a Promise that resolves to the result of parsing the response body as JSON.
 
 [Back to top](#asynchronous-javascript)
 
 ## API - Application Programming Interface
 
+An Application Programming Interface (API) is a set of rules and protocols that allows different software applications to communicate with each other. It defines the methods and data formats that applications can use to request and exchange information. APIs are used to enable the integration of different software systems, allowing them to work together and share data seamlessly.
+
+In the context of JavaScript, APIs are commonly used to interact with web services or external resources.
+
 [Back to top](#asynchronous-javascript)
 
 ### Endpoints
+
+APIs expose specific endpoints _( URLs )_ that correspond to different functionalities or data. These endpoints are like addresses you can visit to perform specific actions or retrieve specific information.
 
 [Back to top](#asynchronous-javascript)
 
 ### Request and Response
 
+When you make a request to an API endpoint, you send a request with specific parameters _( such as query parameters or data in the request body )_. The API processes the request and sends back a response with the requested data or the result of the action.
+
 [Back to top](#asynchronous-javascript)
 
 ### Data Formats
 
+APIs often use standard data formats for the exchange of information. JSON _( JavaScript Object Notation )_ is a common format for structuring data in API responses.
+
 [Back to top](#asynchronous-javascript)
 
 ## JSONPlaceholder API - Free fake API for testing and prototyping
+
+This is a free fake API that you can use in your application for testing and prototyping your application. It contains different resources that have some relations to each other.
+
+[{ JSON } Placeholder](https://jsonplaceholder.typicode.com/)
+
+Here is the [Guide](https://jsonplaceholder.typicode.com/guide/) to json placeholder.
 
 [Back to top](#asynchronous-javascript)
